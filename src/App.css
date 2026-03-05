@@ -1,0 +1,23 @@
+.exerciseContainer {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.orientationOverlay {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+@media (orientation: portrait) {
+    .orientationOverlay {
+        visibility: hidden; 
+    }
+}

@@ -1,0 +1,13 @@
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 10vh);
+    gap: 1vh;
+    align-items: center;
+    justify-content: start;
+}
+
+.keypad button {
+    height: 10vh;
+    font-size: 7vh;
+    cursor: pointer;
+}

@@ -1,0 +1,20 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    overflow: hidden;
+    overscroll-behavior: none;
+
+    /* must be here, so it affects "rem" units */
+    font-size: min(3.0vh, 3.0vh);
+}
+
+body {
+  margin: 0;
+}
