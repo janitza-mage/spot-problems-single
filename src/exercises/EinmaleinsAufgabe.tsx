@@ -29,8 +29,8 @@ type Pair = {x: number, y: number};
 
 function randomize(): Pair {
   while (true) {
-    const x = randomInt(9) + 2;
-    const y = randomInt(9) + 2;
+    const x = randomInt(8) + 2;
+    const y = randomInt(8) + 2;
     if (true) { // checks whether (x,y) is acceptable 
       return {x, y};
     }
