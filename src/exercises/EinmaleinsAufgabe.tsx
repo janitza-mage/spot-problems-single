@@ -39,10 +39,11 @@ function randomize(): Pair {
 
 export function EinmaleinsAufgabe(props: EinmaleinsAufgabeProps) {
   const [xy, ] = useState(randomize);
+  const [startTime] = useState(() => Date.now());
   
   function onFinish(value: number) {
     const correct = value === xy.x * xy.y;
-    addScore(xy.x + "*" + xy.y, correct);
+    addScore(xy.x + "*" + xy.y, correct, Date.now() - startTime);
     props.showFeedback(correct, () => {
       if (correct) {
         props.showNextExercise();
