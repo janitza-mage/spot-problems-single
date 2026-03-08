@@ -1,7 +1,7 @@
 import {randomInt} from "../util/random/randomInt.ts";
 import {SimpleKeypadExercise} from "./SimpleKeypadExercise.tsx";
 import type {ExerciseProps} from "../App.tsx";
-import {type ReactElement, type ReactNode, useState} from "react";
+import {type ReactElement, type ReactNode, useEffect, useState} from "react";
 import {addScore} from "../score.tsx";
 
 interface PotentiallyCorrectedInputProps {
@@ -40,6 +40,7 @@ function randomize(): Pair {
 export function EinmaleinsAufgabe(props: EinmaleinsAufgabeProps) {
   const [xy, ] = useState(randomize);
   const [startTime] = useState(() => Date.now());
+  const [hintVisible, setHintVisible] = useState(false);
   
   function onFinish(value: number) {
     const correct = value === xy.x * xy.y;
@@ -53,9 +54,13 @@ export function EinmaleinsAufgabe(props: EinmaleinsAufgabeProps) {
   
   function renderDisplayLine(input: string): ReactNode {
     return <div style={{display: "inline-block", textAlign: "left", width: "50vh"}}>
-      {xy.x} · {xy.y} = <PotentiallyCorrectedInput expectedInput={xy.x * xy.y} actualInput={input} feedback={props.feedback} />
+      {xy.x} · {xy.y} = <div style={{ display: "inline-block", color: "#ddd", visibility: hintVisible ? "visible" : "hidden", width: "0px", overflow: "visible" }}>{xy.x * xy.y}</div><PotentiallyCorrectedInput expectedInput={xy.x * xy.y} actualInput={input} feedback={props.feedback} />
     </div>;
   }
+
+  useEffect(() => {
+    setTimeout(() => setHintVisible(true), 20 * 1000);
+  }, []);
 
   return <SimpleKeypadExercise
       feedback={props.feedback}
