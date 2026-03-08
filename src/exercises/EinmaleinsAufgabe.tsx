@@ -59,7 +59,7 @@ export function EinmaleinsAufgabe(props: EinmaleinsAufgabeProps) {
   }
 
   useEffect(() => {
-    setTimeout(() => setHintVisible(true), 20 * 1000);
+    setTimeout(() => setHintVisible(true), 15 * 1000);
   }, []);
 
   return <SimpleKeypadExercise
